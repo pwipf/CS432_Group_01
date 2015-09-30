@@ -1,20 +1,8 @@
-﻿Initial Investigation
-
-
-
-
-
-
-
-
-
-
-
+Initial Investigation
 
 
 
 Elastic Pathing: Your Speed is Enough to Track You
-
 
 Insurance companies want lots of information on drivers. Tracking devices in modern cars are common, but privacy concerns with full location tracking are real. A compromise for the insurance company is to keep track of vehicle speed and not location. This speed data set can be revealing for the insurance company, as a low-risk driver probably has a quite different “speed profile” than a high-risk driver.
 The paper addresses the problem of:  Given lots of speed data and a home address (and a road map), there is a possibility of extracting the location data anyway.  So the privacy concerns are not necessarily reduced by only tracking speed data.
