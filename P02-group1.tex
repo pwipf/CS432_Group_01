@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+
+%opening
+\title{Initial Investigation}
+\author{Group 2}
+
+\begin{document}
+
+\maketitle
+
+TODO: brief introduction
+
+\section{Elastic Pathing\cite{Gao}}
+Insurance companies want lots of information on drivers. Tracking devices in modern cars are common, but privacy concerns with full location tracking are real. A compromise for the insurance company is to keep track of vehicle speed and not location. This speed data set can be revealing for the insurance company, as a low-risk driver probably has a quite different ?speed profile? than a high-risk driver.
+The paper addresses the problem of:  Given lots of speed data and a home address (and a road map), there is a possibility of extracting the location data anyway.  So the privacy concerns are not necessarily reduced by only tracking speed data.
+So we are not really interested in the privacy concerns but more in the actual algorithm studied is Elastic Pathing which addresses the problem:
+Given a data trace with speed/time tuples, recreate the driving path.
+
+\section{Estimate Volumes of Convex Polytopes\cite{Ge}}
+This algorithm is interesting as it fits very well with what we are doing lately in class. The problem being solved is:  Find the volume of an arbitrary dimensional solid (before the universe ends).  Apparently for dimensions higher than around 10, it can be computationally infeasible to compute the volume, so instead we estimate it. While there are already algorithms for this estimation, this paper describes a method for a more specific and simple volume, the convex polytope, which is simply a convex hull of a finite number of points in ?d, that is, of arbitrary dimension.
+The algorithm is based on a type of monte-carlo estimation, which I understand as using the distribution of random points that come out inside or outside the volume.
+The convex polytope can be described either by a convex hull of a set of points of an intersection of a set of half-planes, and the latter method is used by the algorithm, and that goes nicely with our study of linear programming, since the half planes are described the same way.
+
+\section{Circle based Eye Center Localization (CECL)\cite{Soelistio}}
+Eye center localization in the context of this paper is used to estimate gaze direction, that is, where the subject is looking. The paper is mainly interested in analyzing video, for monitoring human-computer interaction for behavioral analysis. Other applications might be more interesting, like robot control or virtual reality systems. Or driver drowsiness monitoring in a car.
+This algorithm, CECL, improves on another algorithm, SZP, by being less sensitive to certain types of artifacts, or basically: works better with certain difficult situations, namely, dark areas near the eyes, like long hair, eyebrows, or shadows.
+The problem solved by this algorithm is:  Estimate eye center in an image, more robustly than current methods.  Note that it is not trying to be more accurate, but instead to ?work? where other algorithms fail.
+
+\begin{thebibliography}{10}
+ \bibitem{Gao} Gao, Xianyi, Bernhard Firner, Shridatt Sugrim, Victor Kaiser-Pendergrast, Yulong Yang, and Janne Lindqvist. {\em Elastic Pathing.} Proceedings of the 2014 ACM International Joint Conference on Pervasive and Ubiquitous Computing - UbiComp '14 Adjunct (2014): n. pag. Web.
+
+
+\bibitem{Ge} Ge, Cunjing, and Feifei Ma. {\em A Fast and Practical Method to Estimate Volumes of Convex Polytopes.} Frontiers in Algorithmics Lecture Notes in Computer Science (2015): 52-65. Web.
+
+
+\bibitem{Soelistio} Soelistio, Yustinus Eko, Eric Postma, and Alfons Maes. {\em Circle-based Eye Center Localization (CECL).} 2015 14th IAPR International Conference on Machine Vision Applications (MVA) (2015): n. pag. Web.
+\end{thebibliography}
+
+
+
+\end{document}
