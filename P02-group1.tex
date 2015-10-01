@@ -6,10 +6,9 @@
 \author{Group 1}
 
 \begin{document}
-
 \maketitle
 
-TODO: brief introduction
+Three algorithms were acquired after reading through several papers archived in the Cornell University Library (arXiv.org) and the IEEE Xplore digital library. Criteria for selection was that the problem they were solving had to be topically interesting while requiring the level of understanding to not be so far advanced or extremely difficult to explain well.  
 
 \section{Elastic Pathing\cite{Firner}}
 Insurance companies want lots of information on drivers. Tracking devices in modern cars are common, but privacy concerns with full location tracking are real. A compromise for the insurance company is to keep track of vehicle speed and not location. This speed data set can be revealing for the insurance company, as a low-risk driver probably has a quite different "speed profile" than a high-risk driver.
@@ -43,6 +42,103 @@ The problem solved by this algorithm is:  {\em Estimate eye center in an image, 
 
 
 \end{thebibliography}
+
+
+
+
+\end{document}\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+
+%opening
+\title{Initial Investigation}
+\author{Group 1}
+
+\begin{document}
+\maketitle
+
+Three algorithms were acquired after reading through several papers archived in the Cornell University Library (arXiv.org) and the IEEE Xplore digital library. Criteria for selection was that the problem they were solving had to be topically interesting while requiring the level of understanding to not be so far advanced or extremely difficult to explain well.  
+
+\section{Elastic Pathing\cite{Firner}}
+Insurance companies want lots of information on drivers. Tracking devices in modern cars are common, but privacy concerns with full location tracking are real. A compromise for the insurance company is to keep track of vehicle speed and not location. This speed data set can be revealing for the insurance company, as a low-risk driver probably has a quite different "speed profile" than a high-risk driver.
+
+The paper addresses the problem of:  {\em Given lots of speed data and a home address (and a road map), there may be a possibility of extracting the location data.}  So the privacy concerns are not necessarily reduced by only tracking speed data.
+
+We are not really interested in the privacy concerns but more in the actual algorithm, Elastic Pathing, which addresses the problem:
+{\em Given a data trace with speed/time tuples, recreate the driving path.}
+
+\section{Estimate Volumes of Convex Polytopes\cite{Ge}}
+This algorithm is interesting as it fits well with what we are doing lately in class. The problem being solved is:  {\em Find the volume of an arbitrary dimensional solid (before the universe ends).}  Apparently for dimensions higher than around 10, it can be computationally infeasible to compute the volume, so instead we estimate it. While there are already algorithms for this estimation, this paper describes a method for a more specific and simple volume, the convex polytope, which is simply a convex hull of a finite number of points in $\mathbf{R}^d$, that is, of arbitrary dimension.
+The algorithm is based on a type of monte-carlo estimation, which is sort of using the distribution of random points that fall inside or outside the volume.
+
+The convex polytope can be described either by a convex hull of a set of points or the intersection of a set of half-planes, and the latter method is used by the algorithm, and that goes nicely with our study of linear programming, since the half planes are described the same way.
+
+\section{Circle based Eye Center Localization (CECL)\cite{Soelistio}}
+Eye center localization in the context of this paper is used to estimate gaze direction, that is, where the subject is looking. The paper is mainly interested in analyzing video, for monitoring human-computer interaction for behavioral analysis. Other applications might be more interesting, like robot control or virtual reality systems. Or driver drowsiness monitoring in a car.
+
+This algorithm, CECL, improves on another algorithm (called {\em SZP} by the authors), by being less sensitive to certain types of artifacts, or basically:  works better with certain difficult situations, namely, dark areas near the eyes, like long hair, eyebrows, or shadows.
+The problem solved by this algorithm is:  {\em Estimate eye center in an image, more robustly than current methods.}  Note that it is not trying to be more accurate, but instead to "work" where other algorithms fail.
+
+\begin{thebibliography}{10}
+
+ \bibitem{Firner} B. Firner, S.Sugrim, Y Yang and J. Lindqvist. "Elastic Pathing: Your Speed is Enough to Track You." {\tt arXiv:1401.0052v1 [cs.CR] 30 Dec 2013}
+
+\bibitem{Ge} C. Ge, F. Ma,  and J. Zhang. "A Fast and Practical Method to Estimate Volumes of Convex Polytopes." {\tt arXiv:1401.0120v1 [cs.CG] 31 Dec 2013}
+
+
+\bibitem{Soelistio} Y.E. Soelistio, E. Postma, and A. Maes. "Circle-based eye center localization (CECL)." in {\em Machine Vision Applications (MVA) 2015 14th IAPR International Conference on} , vol., no., pp.349-352, 18-22 May 2015
+{\tt doi: 10.1109/MVA.2015.7153202}
+
+
+\end{thebibliography}
+
+
+
+
+\end{document}\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+
+%opening
+\title{Initial Investigation}
+\author{Group 1}
+
+\begin{document}
+\maketitle
+
+Three algorithms were acquired after reading through several papers archived in the Cornell University Library (arXiv.org) and the IEEE Xplore digital library. Criteria for selection was that the problem they were solving had to be topically interesting while requiring the level of understanding to not be so far advanced or extremely difficult to explain well.  
+
+\section{Elastic Pathing\cite{Firner}}
+Insurance companies want lots of information on drivers. Tracking devices in modern cars are common, but privacy concerns with full location tracking are real. A compromise for the insurance company is to keep track of vehicle speed and not location. This speed data set can be revealing for the insurance company, as a low-risk driver probably has a quite different "speed profile" than a high-risk driver.
+
+The paper addresses the problem of:  {\em Given lots of speed data and a home address (and a road map), there may be a possibility of extracting the location data.}  So the privacy concerns are not necessarily reduced by only tracking speed data.
+
+We are not really interested in the privacy concerns but more in the actual algorithm, Elastic Pathing, which addresses the problem:
+{\em Given a data trace with speed/time tuples, recreate the driving path.}
+
+\section{Estimate Volumes of Convex Polytopes\cite{Ge}}
+This algorithm is interesting as it fits well with what we are doing lately in class. The problem being solved is:  {\em Find the volume of an arbitrary dimensional solid (before the universe ends).}  Apparently for dimensions higher than around 10, it can be computationally infeasible to compute the volume, so instead we estimate it. While there are already algorithms for this estimation, this paper describes a method for a more specific and simple volume, the convex polytope, which is simply a convex hull of a finite number of points in $\mathbf{R}^d$, that is, of arbitrary dimension.
+The algorithm is based on a type of monte-carlo estimation, which is sort of using the distribution of random points that fall inside or outside the volume.
+
+The convex polytope can be described either by a convex hull of a set of points or the intersection of a set of half-planes, and the latter method is used by the algorithm, and that goes nicely with our study of linear programming, since the half planes are described the same way.
+
+\section{Circle based Eye Center Localization (CECL)\cite{Soelistio}}
+Eye center localization in the context of this paper is used to estimate gaze direction, that is, where the subject is looking. The paper is mainly interested in analyzing video, for monitoring human-computer interaction for behavioral analysis. Other applications might be more interesting, like robot control or virtual reality systems. Or driver drowsiness monitoring in a car.
+
+This algorithm, CECL, improves on another algorithm (called {\em SZP} by the authors), by being less sensitive to certain types of artifacts, or basically:  works better with certain difficult situations, namely, dark areas near the eyes, like long hair, eyebrows, or shadows.
+The problem solved by this algorithm is:  {\em Estimate eye center in an image, more robustly than current methods.}  Note that it is not trying to be more accurate, but instead to "work" where other algorithms fail.
+
+\begin{thebibliography}{10}
+
+ \bibitem{Firner} B. Firner, S.Sugrim, Y Yang and J. Lindqvist. "Elastic Pathing: Your Speed is Enough to Track You." {\tt arXiv:1401.0052v1 [cs.CR] 30 Dec 2013}
+
+\bibitem{Ge} C. Ge, F. Ma,  and J. Zhang. "A Fast and Practical Method to Estimate Volumes of Convex Polytopes." {\tt arXiv:1401.0120v1 [cs.CG] 31 Dec 2013}
+
+
+\bibitem{Soelistio} Y.E. Soelistio, E. Postma, and A. Maes. "Circle-based eye center localization (CECL)." in {\em Machine Vision Applications (MVA) 2015 14th IAPR International Conference on} , vol., no., pp.349-352, 18-22 May 2015
+{\tt doi: 10.1109/MVA.2015.7153202}
+
+
+\end{thebibliography}
+
 
 
 
