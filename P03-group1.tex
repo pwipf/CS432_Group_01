@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+
+%opening
+\title{Elastic Pathing}
+\author{Phillip Wipf, Caleb Bryson, Tyler Wright}
+
+\begin{document}
+\maketitle
+\section{Problem Identification}
+
+Elastic Pathing as an algorithm that utilizes tracking data from a motor vehicle in an attempt to recreate a person's driving path given a set of speed and time pairs and an origin point. In the real world, this data can be collected by insurance companies using speed tracking systems meant to record driver habits to identify safer drivers. With the speed and time data, an origin point, and a source to identify possible routes taken like OpenStreetMap, the algorithm looks at a list of possible paths and sorts them to find the best paths with the least amount of error. In order to accurately create these paths, there are aspects of travel in a car that can help make smarter decisions. First off, vehicles at certain speeds will have a specific turn radius, therefore when looking at a path, "it must travel at a speed at or below the maximum speed possible given the radius"[1]. So given a set of nodes and edges which refer possible turns a driver could make at an intersection, we can find the required speeds to make the given turn radius for each new possible path, thus remove paths that exceed the speed requirement.  The other assumption is that the driver will not stop unless they have to or are at their destination, this includes intersections, stop signs, etc. [1]. This assumption gives us the ability to check if our estimated position actually matches any of these possible landmarks, thus either confirming or adding error to our partial pathing. Possible paths can also be eliminated by removing an paths that are not within our current speed limit. In the implementation in [1] an upper bound that produced the best results was around 20 MPH over the speed limit of a path. This is the basic premise behind the problem.
+
+
+\section{Algorithm}
+
+The Elastic Pathing is designed around "compressing or stretching the estimated distance that was traveled as we attempt to match the speed data to the path"[1]. This is how the algorithm gets it's name as we pin points where the speed trace data matches the road, then stretch or compress the following speed data to match the subsequent possible paths, like stretching an elastic band from a pin to the next position[1]. The algorithm then creates an error function of how much the data had to be stretched of compressed to match to the next Landmark in the path. In this algorithm there are five definitions that need to be explained.
+\begin{itemize}
+\item Calculated Distance - The distance a vehicle traveled calculated from the speed and time values in the speed trace[1].
+\item Predicted Distance - "The distance along a possible route on the road at a certain time in the speed trace"[1].
+\item Error - "The difference between calculated distance and predicted distance of a possible route"[1].
+\item Feature - "A vehicle stop in the speed trace or an intersection in the road"[1].
+\item Landmark - "A place where the speed trace and road data match, but would become unmatched if any stretching or compressing of the predicted distance traveled occurs. This includes the previously mentioned feature, but also any other place where a mismatch between speed and road data can occur"[1]. 
+\end{itemize}
+
+\includegraphics{pseudo1}
+\newline
+Looking at the pseudocode of this algorithm, the Set Partial is initialized with the start node and the complete path set is set to empty. The loop is executed as long as we have no Complete Path or our best partial's error is less than our best Complete path's error multiplied by the threshold value. Inside of our iteration, we look at the best partial path and pass it through the gotoBranch function to receive a new path P'. With this new path there is a check to see if it is Complete path or a Partial path and add the path to its respective set. Then the loop sorts our list of partial paths by error scores, so we keep advancing our best paths and avoid the worst paths. 
+\newline
+\newline
+Now to fully understand the algorithm we need to look at the gotoBranch function below. Remember that the initial algorithm has given us the best partial path in an attempt to extend the path with the next speed samples. If we remember from before, there are several cases in which we can choose nodes to move forward. 
+In the first case, we are at an intersection with possible turns represented by nodes which have speeds that the car must be traveling at in order to manage the turn. For each node, if the speed is within the limit to make the turn, we add the edge to reach that node to P, otherwise we have to stretch and compress the path in order alter the speeds to match the intersection. We then add these alterations to our partial, but this now increases our error value of this partial path. 
+The next case, our current speed is at 0. We then look to see if we are at an intersection, and if we are we pin that position to our path and return our partial. If we do not match at an intersection, then we must return our two new paths that have been made by compressing and stretching from our last pin in order to reach a new intersection. 
+Then the last case, we are either at the correct speed limit or exceeding our threshold. If we are within the limit, we just update the distance and look at the next speed sample, but if we are exceeding the threshold, then we drop the path all together and exit. 
+
+\includegraphics{pseudo2}
+\newline
+
+\begin{thebibliography}{10}
+
+ \bibitem{Firner} B. Firner, S.Sugrim, Y Yang and J. Lindqvist. "Elastic Pathing: Your Speed is Enough to Track You." {\tt arXiv:1401.0052v1 [cs.CR] 30 Dec 2013}
+
+{\tt doi: 10.1109/MVA.2015.7153202}
+
+
+\end{thebibliography}
+
+
+
+\end{document}
