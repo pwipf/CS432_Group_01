@@ -13,23 +13,25 @@
 \maketitle
 \section{Introduction}
 
-As a reminder, the elastic pathing algorithm is trying to compute an actual path travelled by a vehicle on city streets, given only speed data and a map of the city.  The reasoning is that some insurance companies allow drivers to opt-in to programs where “only” their speed is monitored, to give benefits to drivers with good habits.  Only collecting speed data and not location is intended to limit privacy concerns that drivers might have if their location is tracked.  However, this algorithm is a method of computing the actual location data from that speed data, so the privacy concerns may be the same as if location data was tracked directly.
+As a reminder, the elastic pathing algorithm is trying to compute an actual path travelled by a vehicle on city streets, given only speed data and a map of the city.  The reasoning is that some insurance companies allow drivers to opt-in to programs where \emph{only} their speed is monitored, to give benefits to drivers with good habits.  Only collecting speed data and not location is intended to limit privacy concerns that drivers might have if their location is tracked.  However, this algorithm is a method of computing the actual location data from that speed data, so the privacy concerns may be the same as if location data was tracked directly.
 
 \section{Possible +1 Elements}
 
-The given algorithm was shown to be approximately 25% accurate, so there is definitely room for improvement.  However, ideas for improving the algorithm so far involve changes which would turn the algorithm into something else entirely, for example a machine learning approach.  One obvious improvement would be to keep a database of previously collected location matched speed data, and use that data (averaged) for the speed limits and cornering speeds, instead of trying to compute them simply from the angle change and number of lanes at an intersection.  Here again, it is not really a change to the algorithm, but an addition requiring more data.
+The given algorithm was shown to be approximately 25\% accurate, so there is definitely room for improvement.  However, ideas for improving the algorithm so far involve changes which would turn the algorithm into something else entirely, for example a machine learning approach.  One obvious improvement would be to keep a database of previously collected location matched speed data, and use that data (averaged) for the speed limits and cornering speeds, instead of trying to compute them simply from the angle change and number of lanes at an intersection.  Here again, it is not really a change to the algorithm, but an addition requiring more data.
 \newline
-The algorithm as is does not really need any speed improvement, as according to the authors, it is able to easily keep up in real-time with speed data being received.  Also, one of the main aspects of the problem and the algorithm’s solution is that the number of possible paths rises exponentially with the distance travelled, so any algorithm most likely needs to find a way to reduce that time, so the running time of the elastic pathing method was analyzed in the paper.
+\newline
+The algorithm as is does not really need any speed improvement, as according to the authors, it is able to easily keep up in real-time with speed data being received.  Also, one of the main aspects of the problem and the algorithm`s solution is that the number of possible paths rises exponentially with the distance travelled, so any algorithm most likely needs to find a way to reduce that time, so the running time of the elastic pathing method was analyzed in the paper.
 
 \section{Chosen Element}
 
-Our proposal for the plus one element is to find a way to better explain the working of the algorithm, by creating a demonstration implementation and running it on familiar locations such as around the streets of Bozeman.  Assuming we can get the algorithm working, we can collect some sample speed data (along with the “true” location), and display a map with the actual path and then go step by step through the algorithm, showing what potential paths it considers, the error associated with them, and the reduction of paths to possible ones, and the optimum choices.  The goal will be to show the way the path has to be “stretched” and “pinned” to make it fit the street grid, so in theory we could show a subset of possible paths, with a color gradient along the lines showing how much they are stretched to fit the grid.
+Our proposal for the plus one element is to find a way to better explain the working of the algorithm, by creating a demonstration implementation and running it on familiar locations such as around the streets of Bozeman.  Assuming we can get the algorithm working, we can collect some sample speed data (along with the true location), and display a map with the actual path and then go step by step through the algorithm, showing what potential paths it considers, the error associated with them, and the reduction of paths to possible ones, and the optimum choices.  The goal will be to show the way the path has to be stretched and pinned to make it fit the street grid, so in theory we could show a subset of possible paths, with a color gradient along the lines showing how much they are stretched to fit the grid.
+\newline
 \newline
 This should fit nicely with the video presentation and, most importantly, it will be interesting for students forced to watch it, and will hopefully give some insight into an interesting problem that many people may not have ever considered.
 
 \section{Conclusion}
 
-The plus 1 element for the elastic pathing algorithm is to show a graphical representation of the pathing, set in a familiar area, to better explain how the algorithm works, and it’s key aspects.
+The plus 1 element for the elastic pathing algorithm is to show a graphical representation of the pathing, set in a familiar area, to better explain how the algorithm works, and it`s key aspects.
 
 \section{Appendix A:  Timeline}
 
