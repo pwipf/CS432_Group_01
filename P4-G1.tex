@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+
+%opening
+\title{P4: Demonstration of Progress}
+\author{Phillip Wipf, Caleb Bryson}
+
+\begin{document}
+\maketitle
+\section{What we should have}
+
+At this time, we have made progress but are not quite on track with the time-line we had proposed on the last report, which suggested we would have a working implementation of the algorithm, and some graphical output showing some possible paths superimposed on a map of Bozeman.
+
+\section{What we have}
+Instead, what we have is an implementation of the Elastic Pathing algorithm from the paper, but we are still working on acquiring some data and maps to actually test the algorithm and work out the bugs and issues. At first we assumed we could make up some data to test with but we have moved on to working with a GPS unit and getting some actual data from driving around town, and that is the current work going on.
+
+\section{What is left}
+A few minor details giving us headaches are:
+\begin{enumerate}
+\item Actually getting the speed data from a GPS unit. This is not difficult, but arranging it, with lat and long data, in a format our program can read, is a little work to be done.
+\item Figuring out how to get some street data from OpenStreetMap.com, and again, putting it into a format our program can use.
+\item Matching the output of our program to the scale of a street map background, or equivalently, matching the scale of a street map background to the output of our program.
+\end{enumerate}
+Nothing too difficult here but still some work to be done. \newline\newline
+Then of course the main thing we still need to do after getting our implementation fully working is:
+\begin{enumerate}
+\item Get a video presentation made and prepare to present.
+\end{enumerate}
+\section{Conclusion}
+We feel our project is on track, especially with a little Thanksgiving break coming up, which is nice.
+
+
+\end{document}
